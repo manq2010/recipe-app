@@ -13,9 +13,15 @@
   <body>
     <%= render 'layouts/nav' %>
 
-    <p class="notice"><%= notice %></p>
-       <p class="alert"><%= alert %></p>
+    <p class="notice flex-center"><%= notice %></p>
+    <p class="alert flex-center"><%= alert %></p>
 
+    <main id = "main-section">
     <%= yield %>
+    </main>
+
+    <footer id = "footer">
+         <p>Created by Ibrahim & Mancoba &copy; <%= Time.now.year %> </p>
+    </footer>
   </body>
 </html>
