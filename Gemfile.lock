@@ -200,6 +200,10 @@ GEM
       actionpack (>= 5.2)
       railties (>= 5.2)
     rexml (3.2.5)
+    rspec (3.12.0)
+      rspec-core (~> 3.12.0)
+      rspec-expectations (~> 3.12.0)
+      rspec-mocks (~> 3.12.0)
     rspec-core (3.12.1)
       rspec-support (~> 3.12.0)
     rspec-expectations (3.12.2)
@@ -314,6 +318,7 @@ DEPENDENCIES
   rack-cors
   rails (~> 7.0.4, >= 7.0.4.2)
   rails-controller-testing
+  rspec (~> 3.0)
   rspec-rails (~> 5.0.0)
   rswag
   rubocop (>= 1.0, < 2.0)
