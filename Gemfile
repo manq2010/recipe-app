@@ -11,8 +11,8 @@ gem 'jquery-rails'
 gem 'letter_opener'
 gem 'rack-cors'
 gem 'rails-controller-testing'
-gem 'rspec-rails', '~> 5.0.0'
 gem 'rspec', '~> 3.0'
+gem 'rspec-rails', '~> 5.0.0'
 gem 'rswag'
 gem 'rubocop', '>= 1.0', '< 2.0'
 gem 'rubocop-discourse'
@@ -29,7 +29,6 @@ gem 'pg', '~> 1.1'
 
 # Use the Puma web server [https://github.com/puma/puma]
 gem 'puma', '~> 5.0'
-
 
 # Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
 gem 'importmap-rails'
