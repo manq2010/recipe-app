@@ -1,34 +1,17 @@
 require 'rails_helper'
 
 RSpec.describe 'recipes/index', type: :view do
+  let(:user) { FactoryBot.create(:user) }
   before(:each) do
-    assign(:recipes, [
-             Recipe.create!(
-               name: 'Name',
-               preparation_time: 2,
-               cooking_time: 3,
-               description: 'Description',
-               public: false,
-               user: nil
-             ),
-             Recipe.create!(
-               name: 'Name',
-               preparation_time: 2,
-               cooking_time: 3,
-               description: 'Description',
-               public: false,
-               user: nil
-             )
-           ])
+    FactoryBot.create(:recipe, name: 'Recipe 1', description: 'Description 1', user:)
+    FactoryBot.create(:recipe, name: 'Recipe 2', description: 'Description 2', user:)
   end
 
-  it 'renders a list of recipes' do
+  it 'displays a link to create a new recipe' do
     render
-    assert_select 'tr>td', text: 'Name'.to_s, count: 2
-    assert_select 'tr>td', text: 2.to_s, count: 2
-    assert_select 'tr>td', text: 3.to_s, count: 2
-    assert_select 'tr>td', text: 'Description'.to_s, count: 2
-    assert_select 'tr>td', text: false.to_s, count: 2
-    assert_select 'tr>td', text: nil.to_s, count: 2
+
+    assert_select '.new-recipe-link-div' do
+      assert_select 'a.new-recipe-link[href=?]', new_recipe_path, text: 'New recipe'
+    end
   end
 end
