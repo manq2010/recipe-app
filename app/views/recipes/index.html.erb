@@ -1,14 +1,17 @@
-<p style="color: green"><%= notice %></p>
-
-<h1>Recipes</h1>
-
-<div id="recipes">
-  <% @recipes.each do |recipe| %>
-    <%= render recipe %>
-    <p>
-      <%= link_to "Show this recipe", recipe %>
-    </p>
+<div class="container">
+  <% if notice.present? %>
+    <p class="notice"><%= notice %></p>
   <% end %>
-</div>
 
-<%= link_to "New recipe", new_recipe_path %>
+  <h1>Recipes</h1>
+
+  <div id="recipes">
+    <% @recipes.each do |recipe| %>
+      <%= render recipe %>
+    <% end %>
+
+   
+  <div class="new-recipe-link-div">
+    <%= link_to "New recipe", new_recipe_path, class: "new-recipe-link" %>
+  </div>
+</div>
