@@ -6,9 +6,11 @@
   <h1>Recipes</h1>
 
   <div id="recipes">
-    <% @recipes.each do |recipe| %>
-      <%= render recipe %>
-    <% end %>
+    <% if @recipes %>
+  <% @recipes.each do |recipe| %>
+    <%= render recipe %>
+  <% end %>
+<% end %>
 
    
   <div class="new-recipe-link-div">
