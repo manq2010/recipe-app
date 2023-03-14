@@ -15,7 +15,8 @@
  */
 :root {
   --primary: #181823;
-  --secondary: #537fe7;
+  --secondary: #c0eef2;
+  --tertiary: #537fe7;
   --border-radius: 5px;
 }
 
@@ -88,6 +89,48 @@ input {
 input[type='checkbox'] {
   width: auto;
   height: auto;
+}
+
+.new-food-link {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.new-food-link > a {
+  padding: 10px 20px;
+  background-color: var(--secondary);
+  color: white;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+.new-food-link > a:hover {
+  background-color: #333;
+  color: #fff;
+}
+
+table {
+  margin: 0 auto;
+  border-collapse: collapse;
+  width: 70%;
+  color: var(--tertiary);
+}
+
+th,
+td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background-color: var(--secondary);
+  color: white;
+}
+
+tr:nth-child(odd) {
+  background-color: var(--primary);
 }
 
 footer {
