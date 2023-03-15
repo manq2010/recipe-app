@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   resources :foods, only: [:index, :show, :new, :edit,:create, :destroy]
   resources :users
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
+  put '/recipes/:id/toggle_privacy', to: 'recipes#toggle_privacy', as: 'toggle_recipe_privacy'
   # Defines the root path route ("/")
   root "foods#index"
 end

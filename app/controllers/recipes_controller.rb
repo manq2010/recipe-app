@@ -21,6 +21,11 @@ class RecipesController < ApplicationController
   # GET /recipes/1/edit
   def edit; end
 
+  def toggle_privacy
+    @recipe = Recipe.find(params[:id])
+    @recipe.toggle_privacy!
+    redirect_to recipe_path(@recipe)
+  end
   # POST /recipes or /recipes.json
   def create
     @recipe = current_user.recipes.new(recipe_params)
