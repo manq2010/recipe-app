@@ -3,7 +3,9 @@
   <p>
     <%= link_to recipe.name , recipe %>
   </p>
+   <% if can? :destroy, recipe %>
  <%= button_to "Delete recipe", recipe, method: :delete %>
+ <% end %>
  </div>
   <p>
     <%= recipe.description %>
