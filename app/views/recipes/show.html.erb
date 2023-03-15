@@ -11,7 +11,7 @@
  </div>
   <div>
    <%= button_to "Generate shopping list"%>
-    <%= button_to "Add ingredient"%>
+    <%= link_to "Add ingredient",  new_recipe_recipe_food_path(@recipe)%>
     </div>
 <div>
 </div>
@@ -29,9 +29,25 @@
 <tbody>
   <% @food_recipe.each do | recipe_food| %>
     <tr>
-    <%= render recipe_food %>
+    <div id="<%= dom_id recipe_food %>">
+  <p>
+    <strong>Quantity:</strong>
+    <%= recipe_food.quantity %>
+  </p>
+
+  <p>
+    <strong>User:</strong>
+    <%= recipe_food.user_id %>
+  </p>
+
+  <p>
+    <strong>Food:</strong>
+    <%= recipe_food.food.name %>
+  </p>
+
+</div>
     <td>
-    <%= button_to "Delete", food, method: :delete %>
+    <%= button_to "Delete" %>
     </td>
     </tr>
   <% end %>
