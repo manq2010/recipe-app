@@ -1,0 +1,29 @@
+<h1>Shopping List</h1>
+
+<p>
+Amount of food items to buy:
+</p>
+
+<p>
+Total value of food needed: 
+</p>
+
+
+<table>
+  <thead>
+    <tr>
+      <th>Food</th>
+      <th>Quantity</th>
+      <th>Price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @recipe_foods.each do |missing_item| %>
+      <tr>
+      <td><%= missing_item[:quantity] %></td>
+        <td><%= missing_item[:quantity] %></td>
+        <td><%= missing_item[:quantity] %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
