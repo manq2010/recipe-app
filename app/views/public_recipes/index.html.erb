@@ -1,0 +1,15 @@
+<div class="container">
+  <% if notice.present? %>
+    <p class="notice"><%= notice %></p>
+  <% end %>
+
+  <h1>Public Recipes</h1>
+
+  <div id="recipes">
+    <% if @recipes %>
+  <% @recipes.each do |recipe| %>
+    <%= render recipe %>
+  <% end %>
+<% end %>
+
+</div>
