@@ -13,11 +13,12 @@
     <p>
       <%= link_to recipe.name , recipe %>
     </p>
-      <p>By: <%= recipe.user.name %></p>
+      <p class="public-res-user">By: <%= recipe.user.name %></p>
   </div>
-  
+  <div class="public-resipe-div">
   <p><strong>Total food items:</strong> <%= recipe.recipe_foods.count %></p>
   <p><strong>Total price:</strong> $<%= recipe.recipe_foods.sum { |rf| rf.food.price * rf.quantity } %></p>
+  </div>
 </div>
 <% end %>
 </div>

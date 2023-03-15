@@ -6,13 +6,15 @@
   <p>Cooking time <%=@recipe.cooking_time %></p>
   <p>steps <%=@recipe.description %></p>
   </div>
- 
+ <% if can? :update, @recipe %>
 <%= button_to(@recipe.public? ? "Make Private" : "Make Public", toggle_recipe_privacy_path(@recipe), method: :put) %>
-
+<% end %>
  </div>
   <div>
    <%= button_to "Generate shopping list"%>
+   <% if can? :create, @recipe %>
     <%= link_to "Add ingredient",  new_recipe_recipe_food_path(@recipe)%>
+    <% end %>
     </div>
 <div>
 </div>
