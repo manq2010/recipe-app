@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  
-  
   devise_for :users, path: '', path_names: {
     sign_in: 'login', sign_out: 'logout',
     password: 'secret', confirmation: 'verification',
@@ -9,13 +7,17 @@ Rails.application.routes.draw do
 
   resources :recipes, only: [:index, :show, :new, :edit, :create, :destroy] do
     resources :recipe_foods, only: [:create, :new, :destroy]
+    resources :shopping_lists, only: [:index]
   end
 
+  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  resources :public_recipes, only: [:index]
   resources :users
   resources :foods, only: [:index, :show, :new, :edit,:create, :destroy]
 
-  resources :shopping_lists, only: [:index]
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  put '/recipes/:id/toggle_privacy', to: 'recipes#toggle_privacy', as: 'toggle_recipe_privacy'
+  put '/recipes/:id/toggle_shopping_tag', to: 'recipes#toggle_shopping_tag', as: 'toggle_shopping_tag'
 
   # Defines the root path route ("/")
   root "foods#index"

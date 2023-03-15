@@ -6,7 +6,13 @@ class Recipe < ApplicationRecord
   validates :cooking_time, numericality: { greater_than_or_equal_to: 0 }
   validates :user_id, presence: true
 
+  scope :public_recipes, -> { where(public: true).order(created_at: :desc) }
+
   def toggle_privacy!
     update(public: !public)
+  end
+
+  def toggle_shopping_tag!
+    update(shopping_tag: !shopping_tag)
   end
 end

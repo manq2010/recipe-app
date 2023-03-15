@@ -1,0 +1,40 @@
+.shopping-list {
+
+    h1 {
+        font-size: 2rem;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .header-details {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        gap: 1rem;
+        margin-bottom: 1rem;
+    }
+ 
+    .back-to-recipe {
+        display: flex;
+        justify-content: center;
+        margin-top: 2rem;
+    
+        a {
+            background-color: #008CBA;
+            border-radius: 0.5rem;
+            border: none;
+            color: white;
+            padding: 8px 16px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin-right: 10px;
+            cursor: pointer;
+        
+            &:hover {
+                background-color: #00698C;
+            }
+        }
+    }
+}
