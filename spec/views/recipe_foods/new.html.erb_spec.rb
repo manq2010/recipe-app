@@ -2,9 +2,9 @@ require 'rails_helper'
 
 RSpec.describe 'Recipe Foods page', type: :feature do
   let!(:user) { create(:user) }
-  let!(:recipe) { create(:recipe, user: user) }
-  let!(:food1) { create(:food, name: 'Chicken', user: user) }
-  let!(:food2) { create(:food, name: 'Broccoli', user: user) }
+  let!(:recipe) { create(:recipe, user:) }
+  let!(:food1) { create(:food, name: 'Chicken', user:) }
+  let!(:food2) { create(:food, name: 'Broccoli', user:) }
 
   before do
     sign_in user
@@ -18,15 +18,15 @@ RSpec.describe 'Recipe Foods page', type: :feature do
         select 'Chicken', from: 'Food'
         click_button 'Add ingredient'
       end
-     
+
       expect(page).to have_current_path(recipe_path(recipe))
       expect(page).to have_content 'Chicken'
       expect(page).to have_content '2'
     end
 
-  it 'navigates back to the recipe page' do
-    click_link 'Back to recipe'
-    expect(page).to have_current_path(recipe_path(recipe))
+    it 'navigates back to the recipe page' do
+      click_link 'Back to recipe'
+      expect(page).to have_current_path(recipe_path(recipe))
+    end
   end
-end
 end

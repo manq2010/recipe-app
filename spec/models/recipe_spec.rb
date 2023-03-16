@@ -49,20 +49,19 @@ RSpec.describe Recipe, type: :model do
     end
   end
 
-  describe "scopes" do
-    describe ".public_recipes" do
+  describe 'scopes' do
+    describe '.public_recipes' do
       let!(:user) { FactoryBot.create(:user) }
-      let!(:public_recipe) { FactoryBot.create(:recipe, public: true, user: user) }
-      let!(:private_recipe) { FactoryBot.create(:recipe, public: false, user: user) }
-    
-      it "returns only public recipes" do
+      let!(:public_recipe) { FactoryBot.create(:recipe, public: true, user:) }
+      let!(:private_recipe) { FactoryBot.create(:recipe, public: false, user:) }
+
+      it 'returns only public recipes' do
         expect(Recipe.public_recipes).to eq([public_recipe])
       end
-    
-      it "orders recipes by created_at in descending order" do
-        expect(Recipe.public_recipes.to_sql).to match(/ORDER BY \"recipes\".\"created_at\" DESC/i)
+
+      it 'orders recipes by created_at in descending order' do
+        expect(Recipe.public_recipes.to_sql).to match(/ORDER BY "recipes"."created_at" DESC/i)
       end
     end
-    
   end
 end

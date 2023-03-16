@@ -23,7 +23,7 @@ class RecipeFoodsController < ApplicationController
   def create
     @recipe = Recipe.find(params[:recipe_id])
     @recipe_food = current_user.recipe_foods.new(recipe_food_params.merge(recipe_id: params[:recipe_id]))
-  
+
     respond_to do |format|
       if @recipe_food.save
         format.html { redirect_to recipe_path(params[:recipe_id]), notice: 'Recipe food was successfully created.' }
