@@ -5,14 +5,13 @@ Rails.application.routes.draw do
     registration: 'register', edit: 'edit/profile'
   }, sign_out_via: [:get, :post]
 
-  resources :recipes, only: [:index, :show, :new, :edit, :create, :destroy] do
+  resources :recipes, only: [:index, :show, :new, :create, :destroy] do
     resources :recipe_foods, only: [:create, :new, :destroy]
   end
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   resources :shopping_lists, only: [:index]
   resources :public_recipes, only: [:index]
-  resources :users
   resources :foods, only: [:index, :show, :new, :edit,:create, :destroy]
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
