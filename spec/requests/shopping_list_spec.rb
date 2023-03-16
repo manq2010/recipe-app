@@ -9,8 +9,11 @@ RSpec.describe 'ShoppingLists', type: :request do
     end
 
     it 'returns http success' do
+      food = Food.new(name: 'Apple Test', measurement_unit: 'grams', price: 10, quantity: 30, user_id: user.id)
       recipe = Recipe.new(name: 'Test Recipe', preparation_time: 10, cooking_time: 20, user_id: user.id)
-      get "/recipes/#{recipe.id}/shopping_lists"
+      RecipeFood.new(quantity: 50, user_id: user.id, food_id: food.id, recipe_id: recipe.id)
+
+      get '/shopping_lists'
       expect(response).to have_http_status(:success)
     end
   end
