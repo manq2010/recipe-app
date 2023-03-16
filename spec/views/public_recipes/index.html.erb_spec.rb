@@ -34,7 +34,7 @@ RSpec.describe 'Public Recipes page', type: :feature do
       click_link 'Pasta'
       expect(page).to have_content 'Pasta'
       expect(page).to have_content 'A delicious pasta dish'
-      expect(page).to have_content 'Cooking time: 1 mins'
+      expect(page).to have_content 'Cooking time: 1 min'
     end
   end
 end
