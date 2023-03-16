@@ -3,8 +3,8 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.0.2'
 
-gem 'bullet', group: 'development'
 gem 'bootstrap_form'
+gem 'bullet', group: 'development'
 gem 'cancancan'
 gem 'capybara'
 gem 'devise'
