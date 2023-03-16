@@ -29,7 +29,7 @@ class RecipesController < ApplicationController
   def toggle_shopping_tag
     @recipe = Recipe.find(params[:id])
     @recipe.toggle_shopping_tag!
-    redirect_to recipe_shopping_lists_path(@recipe.id)
+    redirect_to recipe_path(@recipe)
   end
 
   # POST /recipes or /recipes.json
