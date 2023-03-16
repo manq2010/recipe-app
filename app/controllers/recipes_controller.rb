@@ -7,7 +7,10 @@ class RecipesController < ApplicationController
   end
 
   # GET /recipes/1 or /recipes/1.json
-  def show; end
+  def show
+    @recipe = Recipe.find(params[:id])
+    @food_recipe = RecipeFood.where(recipe_id: @recipe.id).includes([:food])
+  end
 
   # GET /recipes/new
   def new
@@ -16,6 +19,18 @@ class RecipesController < ApplicationController
 
   # GET /recipes/1/edit
   def edit; end
+
+  def toggle_privacy
+    @recipe = Recipe.find(params[:id])
+    @recipe.toggle_privacy!
+    redirect_to recipe_path(@recipe)
+  end
+
+  def toggle_shopping_tag
+    @recipe = Recipe.find(params[:id])
+    @recipe.toggle_shopping_tag!
+    redirect_to recipe_path(@recipe)
+  end
 
   # POST /recipes or /recipes.json
   def create
