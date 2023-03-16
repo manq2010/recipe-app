@@ -77,6 +77,9 @@ GEM
       actionpack (>= 5.2)
       activemodel (>= 5.2)
     builder (3.2.4)
+    bullet (7.0.7)
+      activesupport (>= 3.0.0)
+      uniform_notifier (~> 1.11)
     cancancan (3.5.0)
     capybara (3.38.0)
       addressable
@@ -302,6 +305,7 @@ GEM
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
     unicode-display_width (2.4.2)
+    uniform_notifier (1.16.0)
     warden (1.2.9)
       rack (>= 2.0.9)
     web-console (4.2.0)
@@ -323,6 +327,7 @@ PLATFORMS
 DEPENDENCIES
   bootsnap
   bootstrap_form
+  bullet
   cancancan
   capybara
   debug
