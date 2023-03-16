@@ -33,6 +33,6 @@ RSpec.feature 'Log in index page', type: :feature do
     expect(current_path).to eq(root_path)
     click_link 'Log out'
     sleep(1)
-    expect(current_path).to eq(new_user_session_path)
+    expect(current_path).to eq(user_session_path)
   end
 end
