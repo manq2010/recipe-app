@@ -6,4 +6,5 @@ class RecipeFood < ApplicationRecord
   validates :user, presence: true
   validates :food, presence: true
   validates :recipe, presence: true
+
 end
