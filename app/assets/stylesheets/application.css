@@ -114,23 +114,26 @@ table {
   margin: 0 auto;
   border-collapse: collapse;
   width: 70%;
-  color: var(--tertiary);
 }
 
 th,
 td {
   padding: 8px;
   text-align: left;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid #ccc;
 }
 
 th {
-  background-color: var(--secondary);
+  background-color: #003366;
   color: white;
 }
 
 tr:nth-child(odd) {
-  background-color: var(--primary);
+  background-color: #f2f2f2;
+}
+
+tr:hover {
+  background-color: #ddd;
 }
 
 footer {
