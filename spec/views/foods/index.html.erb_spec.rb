@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature 'Food show page', type: :feature do
+RSpec.feature 'Food index page', type: :feature do
   let(:user) { FactoryBot.create(:user) }
 
   before do
@@ -11,7 +11,7 @@ RSpec.feature 'Food show page', type: :feature do
     sleep(1)
   end
 
-  scenario 'Displays details and posts  for a single user' do
+  scenario 'Displays details for food' do
     sleep(1)
     expect(page).to have_content('Measurement unit')
   end
