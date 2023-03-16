@@ -122,8 +122,11 @@ Give a ⭐️ if you like this project!
 ## Acknowledgements
 
 - [Microverse](https://www.microverse.org/) for providing the education that inspired this project.
-- [RailsGuides](https
+- [RailsGuides](https://guides.rubyonrails.org/) for the excellent documentation on Ruby on Rails.
 
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](./LICENSE) file for details.
 
 
 
