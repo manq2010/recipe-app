@@ -1,6 +1,6 @@
 class ShoppingListsController < ApplicationController
  
-  def index(user=current_user)
+  def index
     # Get the list of missing food items for all recipes with shopping_tag true
     @recipe_foods = RecipeFood.includes(:food, :recipe)
                               .where(recipes: {shopping_tag: true})
