@@ -2,9 +2,9 @@ require 'rails_helper'
 
 RSpec.describe 'Recipe Foods page', type: :feature do
   let!(:user) { create(:user) }
-  let!(:recipe) { create(:recipe, user:) }
-  let!(:food1) { create(:food, name: 'Chicken', user:) }
-  let!(:food2) { create(:food, name: 'Broccoli', user:) }
+  let!(:recipe) { create(:recipe, user: user) }
+  let!(:food1) { create(:food, name: 'Chicken', user: user) }
+  let!(:food2) { create(:food, name: 'Broccoli', user: user) }
 
   before do
     sign_in user
