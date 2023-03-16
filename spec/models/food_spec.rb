@@ -2,7 +2,6 @@ require 'rails_helper'
 
 RSpec.describe Food, type: :model do
   let(:user) { FactoryBot.create(:user) }
-  let(:food) { FactoryBot.create(:food) }
 
   describe 'validations' do
     it 'is valid with a name, preparation time, cooking time, and user_id' do
