@@ -52,8 +52,8 @@ RSpec.describe Recipe, type: :model do
   describe 'scopes' do
     describe '.public_recipes' do
       let!(:user) { FactoryBot.create(:user) }
-      let!(:public_recipe) { FactoryBot.create(:recipe, public: true, user:) }
-      let!(:private_recipe) { FactoryBot.create(:recipe, public: false, user:) }
+      let!(:public_recipe) { FactoryBot.create(:recipe, public: true, user: user) }
+      let!(:private_recipe) { FactoryBot.create(:recipe, public: false, user: user) }
 
       it 'returns only public recipes' do
         expect(Recipe.public_recipes).to eq([public_recipe])

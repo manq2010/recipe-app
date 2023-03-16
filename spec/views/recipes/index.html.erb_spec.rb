@@ -2,9 +2,9 @@ require 'rails_helper'
 
 RSpec.feature 'Recipe index page', type: :feature do
   let!(:user) { create(:user) }
-  let!(:recipe1) { create(:recipe, name: 'Pasta', description: 'A delicious pasta dish', user:, public: true) }
-  let!(:recipe2) { create(:recipe, name: 'Pizza', description: 'A classic pizza recipe', user:, public: true) }
-  let!(:recipe3) { create(:recipe, name: 'Salad', description: 'A healthy salad recipe', user:, public: false) }
+  let!(:recipe1) { create(:recipe, name: 'Pasta', description: 'A delicious pasta dish', user: user, public: true) }
+  let!(:recipe2) { create(:recipe, name: 'Pizza', description: 'A classic pizza recipe', user: user, public: true) }
+  let!(:recipe3) { create(:recipe, name: 'Salad', description: 'A healthy salad recipe', user: user, public: false) }
   before do
     sign_in user
   end
@@ -48,7 +48,7 @@ RSpec.feature 'Recipe index page User can delete', type: :feature do
 
   scenario 'User can delete a recipe' do
     # Create a recipe to delete
-    create(:recipe, name: 'Burger', description: 'A classic American dish', user:, public: true)
+    create(:recipe, name: 'Burger', description: 'A classic American dish', user: user, public: true)
 
     # Visit the recipe index page
     visit recipes_path

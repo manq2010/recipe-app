@@ -11,7 +11,6 @@ class ShoppingListsController < ApplicationController
 
     @recipe_foods.each do |recipe_food|
       missing_quantity = recipe_food.quantity - recipe_food.food.quantity
-
       next unless missing_quantity.positive?
 
       @missing_foods << recipe_food

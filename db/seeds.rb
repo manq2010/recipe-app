@@ -7,8 +7,8 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 # Users
-User.create(name: "John", role: "admin")
-User.create(name: "Jane", role: "user")
+User.create(name: "John", role: "admin", email: "john@gmail.com", password: 123456 )
+User.create(name: "Jane", role: "user", email: "jane@gmail.com", password: 123456 )
 
 # Foods
 Food.create(name: "Apples", measurement_unit: "kg", price: 5, quantity: 10, user_id: 1)
