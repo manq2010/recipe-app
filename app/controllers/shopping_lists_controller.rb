@@ -16,27 +16,24 @@ class ShoppingListsController < ApplicationController
   # end
 
   def index
-    # Get the recipe foods for the user, including associated foods
-    @recipe_foods = RecipeFood.includes(:food).where(user_id: current_user.id)
-
-    # # Get the general list of food for the user
-    # @foods = current_user.foods
-
+    # Get the list of missing food items for all recipes with shopping_tag true
+    @recipe_foods = RecipeFood.includes(:food, :recipe)
+                              .where(user_id: current_user.id, recipes: {shopping_tag: true})
+  
     # Calculate the total count and price of missing food items
     @total_missing_count = 0
     @total_missing_price = 0
-
-    # Get the list of missing food items for the specified recipe
-    @recipe = Recipe.find(params[:recipe_id])
-    @recipe_foods = @recipe.recipe_foods.includes(:food)
     @missing_foods = []
-
-    @recipe_foods.each do |ingredient|
-      next unless ingredient.quantity > ingredient.food.quantity
-
-      @missing_foods << ingredient
-      @total_missing_count += 1
-      @total_missing_price += (ingredient.quantity - ingredient.food.quantity) * ingredient.food.price
+  
+    @recipe_foods.each do |recipe_food|
+      missing_quantity = recipe_food.quantity - recipe_food.food.quantity
+      if missing_quantity > 0
+        @missing_foods << recipe_food
+        @total_missing_count += 1
+        @total_missing_price += missing_quantity * recipe_food.food.price
+      end
     end
   end
+  
+  
 end
