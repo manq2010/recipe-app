@@ -99,15 +99,15 @@ input[type='checkbox'] {
 
 .new-food-link > a {
   padding: 10px 20px;
-  background-color: var(--secondary);
+  background-color: #036;
   color: white;
   border-radius: 5px;
   text-decoration: none;
 }
 
 .new-food-link > a:hover {
-  background-color: #333;
-  color: #fff;
+  background-color: var(--secondary);
+  color: var(--tertiary);
 }
 
 table {
@@ -124,7 +124,7 @@ td {
 }
 
 th {
-  background-color: #003366;
+  background-color: #036;
   color: white;
 }
 
