@@ -1,8 +1,7 @@
 <div id="recipe-details">
   
     <h1><%= @recipe.name %></h1>
-   
-  
+
   <div class="recipe-box">
   <div class="recipe-details">
     <div class="recipe-detail">
@@ -16,16 +15,17 @@
     </div>
   </div>
    <% if can? :update, @recipe %>
-<%= button_to(@recipe.public? ? "Make Private" : "Make Public", toggle_recipe_privacy_path(@recipe), method: :put, class: "update-recipe") %>
+    <%= button_to(@recipe.public? ? "Make Private" : "Make Public", toggle_recipe_privacy_path(@recipe), method: :put, class: "update-recipe") %>
     <% end %>
     </div>
 
   <div class="recipe-actions">
-    <%= button_to(@recipe.shopping_tag? ? "Remove shopping list" : "Generate shopping list", toggle_shopping_tag_path(@recipe), method: :put, class: "update-recipe") %>
+  <% if can? :update, @recipe %>
+    <%= button_to(@recipe.shopping_tag? ? "Remove from shopping list" : "Generate shopping list", toggle_shopping_tag_path(@recipe), method: :put, class: "update-recipe") %>
+  <% end %>
     
     <% if can? :create, @recipe %>
       <%= link_to "Add ingredient", new_recipe_recipe_food_path(@recipe), class: "add-ingredient" %>
-
     <% end %>
   </div>
 </div>
@@ -38,7 +38,9 @@
         <th>Food</th>
         <th>Quantity</th>
         <th>Value</th>
+        <% if can? :destroy, @recipe %>
         <th>Actions</th>
+        <% end %>
       </tr>
     </thead>
     <tbody>
@@ -47,7 +49,11 @@
           <td><%= recipe_food.food.name %></td>
           <td><%= recipe_food.quantity %></td>
           <td><%= recipe_food.food.price * recipe_food.quantity %></td>
-          <td><%= button_to "Delete", recipe_recipe_food_path(@recipe, recipe_food), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <% if can? :destroy, @recipe %>
+          <td>
+          <%= button_to "Delete", recipe_recipe_food_path(@recipe, recipe_food), method: :delete, data: { confirm: 'Are you sure?' } %>
+          </td>
+          <% end %>
         </tr>
       <% end %>
     </tbody>

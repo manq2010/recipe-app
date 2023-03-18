@@ -1,3 +1,6 @@
+<% if user_signed_in? %>
+<section>
+
 <div class="new-food-link"> 
 <%= link_to "New food", new_food_path %>
 </div>
@@ -26,3 +29,5 @@
   </table>
 </div>
 
+</section>
+<% end %>

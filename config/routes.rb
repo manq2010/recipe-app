@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   put '/recipes/:id/toggle_privacy', to: 'recipes#toggle_privacy', as: 'toggle_recipe_privacy'
   put '/recipes/:id/toggle_shopping_tag', to: 'recipes#toggle_shopping_tag', as: 'toggle_shopping_tag'
-
+  patch 'shopping_lists/toggle_shopping_tag', to: 'shopping_lists#toggle_shopping_tag', as: 'toggle_shopping_tag_all'
   # Defines the root path route ("/")
   root "foods#index"
 end

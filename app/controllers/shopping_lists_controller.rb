@@ -1,7 +1,8 @@
 class ShoppingListsController < ApplicationController
   def index
+    @recipes = current_user.recipes
     # Get the list of missing food items for all recipes with shopping_tag true
-    @recipe_foods = RecipeFood.includes(:food, :recipe)
+    @recipe_foods = RecipeFood.includes(:food, :recipe, :user)
       .where(recipes: { shopping_tag: true })
 
     # Calculate the total count and price of missing food items
@@ -17,5 +18,17 @@ class ShoppingListsController < ApplicationController
       @total_missing_count += 1
       @total_missing_price += missing_quantity * recipe_food.food.price
     end
+
+    @shopping_tags_present = Recipe.exists?(shopping_tag: true)
+  end
+
+  def toggle_shopping_tag
+    if Recipe.where(shopping_tag: true).exists?
+      Recipe.update_all(shopping_tag: false)
+    else
+      Recipe.update_all(shopping_tag: true)
+    end
+
+    redirect_to shopping_lists_path
   end
 end

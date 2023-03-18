@@ -16,6 +16,8 @@
           <th>Food</th>
           <th>Quantity</th>
           <th>Price</th>
+          <th>Recipe Name</th>
+          <th>Owner</th>
           </tr>
       </thead>
       <tbody>
@@ -24,12 +26,23 @@
           <td><%=food_item.food.name%></td>
           <td><%= food_item.quantity - food_item.food.quantity %> <%= food_item.food.measurement_unit%></td>
           <td>$ <%=food_item.food.price * (food_item.quantity - food_item.food.quantity) %></td>
+          <td>$ <%= food_item.recipe.name %></td>
+          <td>$ <%= food_item.user.name %></td>
         </tr>
       <%end%>
       </tbody>
     </table>
   </div>
 
+  
+  <% if can? :update, @recipe %>
+  
+  <div class="back-to-recipe">
+  <%= button_to (@shopping_tags_present ? "Remove all from shopping list" : "Add all to shopping list"), toggle_shopping_tag_all_path, method: :patch, class: "update-recipe" %>
+
+  </div>
+  <% end %>
+  
   <div class="back-to-recipe">
   <%= link_to "Back to recipes", recipes_path %>
   </div>

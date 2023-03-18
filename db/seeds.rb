@@ -7,17 +7,17 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 # Users
-User.create(name: "John", role: "admin", email: "john@gmail.com", password: 123456 )
-User.create(name: "Jane", role: "user", email: "jane@gmail.com", password: 123456 )
+User.create(name: "admin", role: "admin", email: "admin@gmail.com", password: 123456 )
+User.create(name: "J", role: "user", email: "j@gmail.com", password: 123456 )
 
 # Foods
-Food.create(name: "Apples", measurement_unit: "kg", price: 5, quantity: 10, user_id: 1)
-Food.create(name: "Chicken", measurement_unit: "lb", price: 8, quantity: 5, user_id: 2)
+Food.create(name: "Apples", measurement_unit: "kg", price: 5, quantity: 5, user_id: 1)
+Food.create(name: "Chicken", measurement_unit: "lb", price: 8, quantity: 10, user_id: 2)
 
 # Recipes
 Recipe.create(name: "Apple Pie", preparation_time: 20, cooking_time: 40, description: "A delicious homemade apple pie recipe.", public: true, user_id: 1)
 Recipe.create(name: "Grilled Chicken", preparation_time: 10, cooking_time: 20, description: "A quick and easy grilled chicken recipe.", public: false, user_id: 2)
 
 # RecipeFoods
-RecipeFood.create(quantity: 2, user_id: 1, food_id: 1)
-RecipeFood.create(quantity: 1, user_id: 2, food_id: 2)
+RecipeFood.create(quantity: 10, user_id: 1, food_id: 1)
+RecipeFood.create(quantity: 20, user_id: 2, food_id: 2)

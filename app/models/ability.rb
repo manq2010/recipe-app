@@ -11,6 +11,10 @@ class Ability
       can :read, :all
       can :manage, Recipe, user_id: user.id
       can :manage, RecipeFood, user_id: user.id
+      # can :manage, Food, user_id: user.id
+      # can :read, :all
+      # can %i[create destroy], Recipe, user_id: user.id
+      # can %i[create destroy], RecipeFood, user_id: user.id
     end
   end
 end
