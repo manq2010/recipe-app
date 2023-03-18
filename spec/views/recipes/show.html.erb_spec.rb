@@ -29,7 +29,7 @@ RSpec.feature 'Recipe show page', type: :feature do
 
     click_button 'Generate shopping list'
 
-    expect(page).to have_content('Remove shopping list')
+    expect(page).to have_content('Remove from shopping list')
   end
 
   scenario 'User can delete recipe food' do

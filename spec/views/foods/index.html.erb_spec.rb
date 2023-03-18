@@ -4,11 +4,13 @@ RSpec.feature 'Food show page', type: :feature do
   let(:user) { FactoryBot.create(:user) }
 
   before do
-    visit new_user_session_path
-    fill_in 'Email', with: user.email
-    fill_in 'Password', with: user.password
-    click_button 'Log in'
-    sleep(1)
+    # visit new_user_session_path
+    # fill_in 'Email', with: user.email
+    # fill_in 'Password', with: user.password
+    # click_button 'Log in'
+    # sleep(1)
+    sign_in user
+    visit foods_path
   end
 
   scenario 'Displays details and posts  for a single user' do
